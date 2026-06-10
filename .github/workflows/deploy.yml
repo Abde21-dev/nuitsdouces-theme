@@ -1,0 +1,45 @@
+name: Deploy Theme to Hostinger
+
+# Déclencheur : à chaque push sur la branche main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Déploiement FTP vers Hostinger
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # 1. Récupérer le code du repo
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      # 2. Déployer via FTP sur Hostinger
+      # Les secrets FTP sont à configurer dans GitHub :
+      # Settings > Secrets and variables > Actions
+      #   - FTP_HOST     : ton hôte FTP Hostinger (ex: ftp.nuitsdouces.fr)
+      #   - FTP_USER     : ton identifiant FTP Hostinger
+      #   - FTP_PASSWORD : ton mot de passe FTP Hostinger
+      - name: Déploiement FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:         ${{ secrets.FTP_HOST }}
+          username:       ${{ secrets.FTP_USER }}
+          password:       ${{ secrets.FTP_PASSWORD }}
+          local-dir:      ./                          # racine du repo = racine du thème
+          server-dir:     /public_html/wp-content/themes/nuitsdouces-theme/
+          exclude:        |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            README.md
+          state-name:     .ftp-deploy-sync-state.json # cache des fichiers déjà envoyés
+          log-level:      standard
+
+      # 3. Notification de succès (optionnel — à activer quand tu veux)
+      # - name: Notification Slack/email
+      #   ...

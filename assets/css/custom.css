@@ -1,0 +1,582 @@
+/* ==========================================================================
+   Nuits Douces — custom.css
+   Thème enfant GeneratePress | nuitsdouces.fr
+   Style : lumineux, épuré, bleu doux et blanc
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES CSS (palette + typographie)
+   -------------------------------------------------------------------------- */
+
+:root {
+    /* Couleurs */
+    --nd-bg:           #FAFAFA;
+    --nd-bg-card:      #FFFFFF;
+    --nd-bg-toc:       #F0F4F8;
+    --nd-bg-toc-hover: #E2EAF3;
+    --nd-bg-winner:    #EFF6FF;
+
+    --nd-text:         #1A1A2E;
+    --nd-text-muted:   #6B7280;
+    --nd-text-light:   #9CA3AF;
+
+    --nd-accent:       #6B8CBA;
+    --nd-accent-dark:  #4A6FA0;
+    --nd-accent-light: #A8C1DC;
+
+    --nd-border:       #E5E7EB;
+    --nd-border-focus: #6B8CBA;
+
+    --nd-winner:       #F59E0B;
+    --nd-winner-bg:    #FFFBEB;
+
+    --nd-amazon-btn:   #FF9900;
+    --nd-amazon-hover: #E68A00;
+
+    /* Typographie */
+    --nd-font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --nd-font-serif: 'Merriweather', Georgia, 'Times New Roman', serif;
+
+    /* Tailles */
+    --nd-radius:   8px;
+    --nd-radius-sm: 4px;
+    --nd-shadow:   0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --nd-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+
+/* --------------------------------------------------------------------------
+   2. BASE ET TYPOGRAPHIE
+   -------------------------------------------------------------------------- */
+
+body {
+    background-color: var(--nd-bg);
+    color: var(--nd-text);
+    font-family: var(--nd-font-sans);
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Titres en Merriweather pour un aspect éditorial */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--nd-font-serif);
+    color: var(--nd-text);
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+h1 { font-size: 2rem;    margin-bottom: 1rem; }
+h2 { font-size: 1.6rem;  margin-top: 2.5rem; margin-bottom: 1rem; }
+h3 { font-size: 1.3rem;  margin-top: 2rem;   margin-bottom: 0.75rem; }
+
+/* Séparateur décoratif sous les H2 */
+.entry-content h2 {
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--nd-border);
+}
+
+p {
+    margin-bottom: 1.25rem;
+}
+
+a {
+    color: var(--nd-accent);
+    text-decoration: underline;
+    text-decoration-color: var(--nd-accent-light);
+    text-underline-offset: 3px;
+    transition: color 0.2s, text-decoration-color 0.2s;
+}
+
+a:hover {
+    color: var(--nd-accent-dark);
+    text-decoration-color: var(--nd-accent-dark);
+}
+
+/* Largeur max du contenu pour meilleure lisibilité */
+.entry-content {
+    max-width: 780px;
+}
+
+/* Images responsive */
+.entry-content img {
+    border-radius: var(--nd-radius);
+    box-shadow: var(--nd-shadow);
+    height: auto;
+}
+
+
+/* --------------------------------------------------------------------------
+   3. EN-TÊTE DU SITE
+   -------------------------------------------------------------------------- */
+
+.site-header {
+    background-color: var(--nd-bg-card);
+    border-bottom: 1px solid var(--nd-border);
+    box-shadow: var(--nd-shadow);
+}
+
+.site-title a {
+    font-family: var(--nd-font-serif);
+    font-size: 1.5rem;
+    color: var(--nd-text) !important;
+    text-decoration: none;
+}
+
+.site-description {
+    color: var(--nd-text-muted);
+    font-size: 0.85rem;
+}
+
+/* Navigation */
+.nav-primary .main-nav ul li a {
+    font-family: var(--nd-font-sans);
+    font-weight: 500;
+    color: var(--nd-text);
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-primary .main-nav ul li a:hover,
+.nav-primary .main-nav ul li.current-menu-item > a {
+    color: var(--nd-accent);
+}
+
+
+/* --------------------------------------------------------------------------
+   4. TABLE DES MATIÈRES [toc]
+   -------------------------------------------------------------------------- */
+
+.nd-toc {
+    background-color: var(--nd-bg-toc);
+    border: 1px solid var(--nd-border);
+    border-left: 4px solid var(--nd-accent);
+    border-radius: var(--nd-radius);
+    padding: 0;
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.nd-toc__header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.25rem;
+    background-color: var(--nd-bg-toc);
+    cursor: pointer;
+    user-select: none;
+}
+
+.nd-toc__icon {
+    color: var(--nd-accent);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.nd-toc__title {
+    font-family: var(--nd-font-sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--nd-text);
+    flex: 1;
+}
+
+.nd-toc__toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--nd-text-muted);
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    border-radius: var(--nd-radius-sm);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nd-toc__toggle:hover {
+    background-color: var(--nd-bg-toc-hover);
+    color: var(--nd-text);
+}
+
+.nd-toc__toggle-icon {
+    transition: transform 0.2s ease;
+}
+
+/* État réduit */
+.nd-toc--collapsed .nd-toc__toggle-icon {
+    transform: rotate(180deg);
+}
+
+.nd-toc--collapsed .nd-toc__nav {
+    display: none;
+}
+
+.nd-toc__nav {
+    padding: 0.25rem 1.25rem 1rem;
+    border-top: 1px solid var(--nd-border);
+}
+
+.nd-toc__loading {
+    color: var(--nd-text-muted);
+    font-size: 0.875rem;
+    font-style: italic;
+    margin: 0.5rem 0;
+}
+
+/* Liste générée par toc.js */
+.nd-toc__nav ol {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0 0;
+    counter-reset: toc-h2;
+}
+
+.nd-toc__nav ol li {
+    counter-increment: toc-h2;
+    margin: 0;
+}
+
+.nd-toc__nav ol li a {
+    display: block;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
+    font-family: var(--nd-font-sans);
+    color: var(--nd-text);
+    text-decoration: none;
+    border-radius: var(--nd-radius-sm);
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.nd-toc__nav ol li a::before {
+    content: counter(toc-h2) ". ";
+    color: var(--nd-accent);
+    font-weight: 600;
+}
+
+.nd-toc__nav ol li a:hover {
+    background-color: var(--nd-bg-toc-hover);
+    color: var(--nd-accent-dark);
+}
+
+/* Sous-éléments H3 */
+.nd-toc__nav ol ol {
+    padding-left: 1.25rem;
+    counter-reset: toc-h3;
+    padding-top: 0;
+}
+
+.nd-toc__nav ol ol li {
+    counter-increment: toc-h3;
+}
+
+.nd-toc__nav ol ol li a {
+    font-size: 0.85rem;
+    color: var(--nd-text-muted);
+}
+
+.nd-toc__nav ol ol li a::before {
+    content: counter(toc-h3, lower-alpha) ". ";
+    color: var(--nd-accent-light);
+}
+
+
+/* --------------------------------------------------------------------------
+   5. TABLEAU COMPARATIF [tableau_comparatif]
+   -------------------------------------------------------------------------- */
+
+.nd-comparison {
+    margin: 2rem 0;
+}
+
+/* Scroll horizontal sur mobile */
+.nd-comparison__scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--nd-radius);
+    box-shadow: var(--nd-shadow-md);
+}
+
+.nd-comparison__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--nd-font-sans);
+    font-size: 0.9rem;
+    background-color: var(--nd-bg-card);
+    min-width: 500px;
+}
+
+/* En-têtes */
+.nd-comparison__th {
+    background-color: var(--nd-text);
+    color: #FFFFFF;
+    padding: 0.875rem 1rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    position: relative;
+}
+
+.nd-comparison__th--critere {
+    background-color: #2D3748;
+    text-align: left;
+    width: 160px;
+    min-width: 120px;
+}
+
+.nd-comparison__th--winner {
+    background-color: var(--nd-accent);
+}
+
+/* Badge meilleur choix */
+.nd-badge-winner {
+    display: block;
+    background-color: var(--nd-winner);
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+    margin-bottom: 0.4rem;
+}
+
+/* Cellules */
+.nd-comparison__td {
+    padding: 0.75rem 1rem;
+    text-align: center;
+    color: var(--nd-text);
+    border-bottom: 1px solid var(--nd-border);
+    vertical-align: middle;
+}
+
+.nd-comparison__td--critere {
+    text-align: left;
+    font-weight: 600;
+    color: var(--nd-text-muted);
+    background-color: #F9FAFB;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.nd-comparison__td--winner {
+    background-color: var(--nd-bg-winner);
+    font-weight: 600;
+    color: var(--nd-accent-dark);
+}
+
+/* Ligne CTA */
+.nd-comparison__cta-row .nd-comparison__td {
+    padding: 1rem;
+    border-bottom: none;
+    background-color: var(--nd-bg-card);
+}
+
+.nd-comparison__cta-row .nd-comparison__td--winner {
+    background-color: var(--nd-bg-winner);
+}
+
+/* Boutons Amazon */
+.nd-btn-amazon {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border-radius: var(--nd-radius-sm);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none !important;
+    transition: background-color 0.2s, transform 0.1s;
+    white-space: nowrap;
+}
+
+.nd-btn-amazon:active {
+    transform: scale(0.97);
+}
+
+.nd-btn-amazon--primary {
+    background-color: var(--nd-amazon-btn);
+    color: #FFFFFF !important;
+}
+
+.nd-btn-amazon--primary:hover {
+    background-color: var(--nd-amazon-hover);
+    color: #FFFFFF !important;
+}
+
+.nd-btn-amazon--secondary {
+    background-color: transparent;
+    color: var(--nd-accent) !important;
+    border: 1px solid var(--nd-accent);
+}
+
+.nd-btn-amazon--secondary:hover {
+    background-color: var(--nd-bg-toc);
+    color: var(--nd-accent-dark) !important;
+}
+
+/* Note disclaimer */
+.nd-comparison__disclaimer {
+    font-size: 0.78rem;
+    color: var(--nd-text-light);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Message d'erreur shortcode */
+.nd-error {
+    background-color: #FEF2F2;
+    border: 1px solid #FECACA;
+    color: #B91C1C;
+    padding: 0.75rem 1rem;
+    border-radius: var(--nd-radius);
+    font-size: 0.875rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. ARTICLES — MISE EN PAGE ET ÉLÉMENTS ÉDITORIAUX
+   -------------------------------------------------------------------------- */
+
+/* En-tête article */
+.entry-header {
+    margin-bottom: 2rem;
+}
+
+.entry-title {
+    font-size: 2.2rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+}
+
+.entry-meta {
+    font-size: 0.85rem;
+    color: var(--nd-text-muted);
+}
+
+/* Encart "point clé" — usage : <div class="nd-highlight">…</div> */
+.nd-highlight {
+    background-color: var(--nd-bg-winner);
+    border-left: 4px solid var(--nd-winner);
+    border-radius: 0 var(--nd-radius) var(--nd-radius) 0;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+}
+
+/* Encart info */
+.nd-info {
+    background-color: var(--nd-bg-toc);
+    border-left: 4px solid var(--nd-accent);
+    border-radius: 0 var(--nd-radius) var(--nd-radius) 0;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+}
+
+/* Listes dans le contenu */
+.entry-content ul,
+.entry-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.entry-content ul li,
+.entry-content ol li {
+    margin-bottom: 0.4rem;
+}
+
+/* Trait de séparation entre sections */
+.entry-content hr {
+    border: none;
+    border-top: 2px solid var(--nd-border);
+    margin: 2.5rem 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   7. SIDEBAR
+   -------------------------------------------------------------------------- */
+
+.widget-title {
+    font-family: var(--nd-font-sans);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--nd-text-muted);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--nd-border);
+    margin-bottom: 1rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   8. PIED DE PAGE
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+    background-color: var(--nd-text);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    padding: 2rem 0;
+}
+
+.site-footer a {
+    color: var(--nd-accent-light);
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: #FFFFFF;
+}
+
+
+/* --------------------------------------------------------------------------
+   9. RESPONSIVE (mobile-first adjustments)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    h1, .entry-title {
+        font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.15rem;
+    }
+
+    .nd-toc {
+        margin: 1.5rem 0;
+    }
+
+    .nd-comparison__table {
+        font-size: 0.82rem;
+    }
+
+    .nd-comparison__th,
+    .nd-comparison__td {
+        padding: 0.6rem 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .nd-toc__title {
+        font-size: 0.875rem;
+    }
+
+    .nd-btn-amazon {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+}
