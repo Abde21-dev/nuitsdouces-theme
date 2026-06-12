@@ -50,12 +50,26 @@
    -------------------------------------------------------------------------- */
 
 body {
-    background-color: var(--nd-bg);
+    background-color: #F4F6F9;
+    background-image:
+        radial-gradient(ellipse at 20% 0%, rgba(107, 140, 186, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 100%, rgba(107, 140, 186, 0.06) 0%, transparent 50%);
     color: var(--nd-text);
     font-family: var(--nd-font-sans);
     font-size: 17px;
     line-height: 1.75;
     -webkit-font-smoothing: antialiased;
+}
+
+/* Carte centrale : fond blanc avec ombre légère */
+body .inside-article,
+body .inside-page-header,
+body .entry-header {
+    background-color: #FFFFFF !important;
+    box-shadow: 0 2px 12px rgba(107, 140, 186, 0.10) !important;
+    border-radius: 12px !important;
+    margin: 1.5rem auto !important;
+    max-width: 900px !important;
 }
 
 /* Titres en Merriweather pour un aspect éditorial */
@@ -178,9 +192,12 @@ body .inside-page-header {
    -------------------------------------------------------------------------- */
 
 .site-header {
-    background-color: var(--nd-bg-card);
+    background-color: #FFFFFF;
     border-bottom: 1px solid var(--nd-border);
-    box-shadow: var(--nd-shadow);
+    box-shadow: 0 2px 8px rgba(107, 140, 186, 0.10);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .site-title a {
@@ -517,9 +534,18 @@ body .inside-page-header {
     margin-bottom: 0.75rem;
 }
 
-.entry-meta {
-    font-size: 0.85rem;
-    color: var(--nd-text-muted);
+/* Masquer auteur, date et heure sur tous les articles et pages */
+.entry-meta,
+.posted-on,
+.byline,
+.entry-time,
+.posted-by,
+.author-name,
+.entry-meta .sep,
+.meta-sep,
+span.posted-on,
+span.byline {
+    display: none !important;
 }
 
 /* Encart "point clé" — usage : <div class="nd-highlight">…</div> */
