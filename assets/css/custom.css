@@ -93,9 +93,12 @@ a:hover {
     text-decoration-color: var(--nd-accent-dark);
 }
 
-/* Largeur max du contenu pour meilleure lisibilité */
-.entry-content {
-    max-width: 780px;
+/* Contenu pleine largeur — pas de contrainte de largeur max */
+.entry-content,
+.content-area,
+.site-content .content-area {
+    max-width: 100%;
+    width: 100%;
 }
 
 /* Images responsive */
@@ -517,19 +520,30 @@ a:hover {
    -------------------------------------------------------------------------- */
 
 .site-footer {
-    background-color: var(--nd-text);
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.85rem;
-    padding: 2rem 0;
+    background-color: var(--nd-bg-card);
+    color: var(--nd-text-muted);
+    font-size: 0.82rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--nd-border);
 }
 
 .site-footer a {
-    color: var(--nd-accent-light);
+    color: var(--nd-text-muted);
     text-decoration: none;
 }
 
 .site-footer a:hover {
-    color: #FFFFFF;
+    color: var(--nd-accent);
+}
+
+/* Masquer la navigation (noms de pages) dans le pied de page */
+.site-footer nav,
+.site-footer .footer-nav,
+.footer-bar .footer-navigation,
+.footer-bar nav,
+.nav-footer,
+.footer-bar {
+    display: none !important;
 }
 
 
