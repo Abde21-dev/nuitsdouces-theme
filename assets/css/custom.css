@@ -93,12 +93,64 @@ a:hover {
     text-decoration-color: var(--nd-accent-dark);
 }
 
-/* Contenu pleine largeur — pas de contrainte de largeur max */
-.entry-content,
+/* ==========================================================================
+   LAYOUT PLEINE LARGEUR
+   Override du layout GeneratePress "separate-containers" + suppression sidebar
+   ========================================================================== */
+
+/* 1. Conteneur principal pleine largeur */
+.container,
+.site-grid-container,
+#page {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* 2. Supprimer l'effet "boîte" de separate-containers */
+body.separate-containers .site-content,
+body.separate-containers #content,
+body.separate-containers .inside-article {
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+}
+
+/* 3. Masquer la sidebar droite (vide) */
+#right-sidebar,
+.is-right-sidebar,
+.widget-area {
+    display: none !important;
+}
+
+/* 4. Contenu occupe toute la largeur sans la sidebar */
+#primary,
 .content-area,
 .site-content .content-area {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+}
+
+/* 5. Padding interne pour respiration du texte */
+.inside-article,
+.inside-page-header {
+    padding: 2rem 3rem !important;
+}
+
+/* 6. Contenu des articles */
+.entry-content {
     max-width: 100%;
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    .inside-article,
+    .inside-page-header {
+        padding: 1.5rem 1rem !important;
+    }
 }
 
 /* Images responsive */
