@@ -109,10 +109,15 @@ a:hover {
 
 /* 2. Supprimer l'effet "boîte" de separate-containers */
 body.separate-containers .site-content,
-body.separate-containers #content,
-body.separate-containers .inside-article {
+body.separate-containers #content {
     padding: 0 !important;
     margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+}
+
+body.separate-containers .inside-article {
     box-shadow: none !important;
     border-radius: 0 !important;
     background: transparent !important;
@@ -135,9 +140,9 @@ body.separate-containers .inside-article {
 }
 
 /* 5. Padding interne pour respiration du texte */
-.inside-article,
-.inside-page-header {
-    padding: 2rem 3rem !important;
+body .inside-article,
+body .inside-page-header {
+    padding: 2.5rem 5% !important;
 }
 
 /* 6. Contenu des articles */
@@ -147,9 +152,16 @@ body.separate-containers .inside-article {
 }
 
 @media (max-width: 768px) {
-    .inside-article,
-    .inside-page-header {
-        padding: 1.5rem 1rem !important;
+    body .inside-article,
+    body .inside-page-header {
+        padding: 1.5rem 4% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    body .inside-article,
+    body .inside-page-header {
+        padding: 1rem 1rem !important;
     }
 }
 
