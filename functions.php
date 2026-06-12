@@ -14,14 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function nuitsdouces_enqueue_assets() {
 
-    // Style parent GeneratePress
-    wp_enqueue_style(
-        'generatepress-parent-style',
-        get_template_directory_uri() . '/style.css',
-        array(),
-        wp_get_theme( 'generatepress' )->get( 'Version' )
-    );
-
     // Google Fonts : Inter + Merriweather
     wp_enqueue_style(
         'nuitsdouces-fonts',
@@ -30,12 +22,12 @@ function nuitsdouces_enqueue_assets() {
         null
     );
 
-    // CSS personnalisé du thème enfant
+    // CSS personnalisé — chargé après GeneratePress (generate-style est le handle réel de GP)
     wp_enqueue_style(
         'nuitsdouces-custom',
         get_stylesheet_directory_uri() . '/assets/css/custom.css',
-        array( 'generatepress-parent-style' ),
-        '1.0.0'
+        array( 'generate-style' ),
+        '1.1.0'
     );
 
     // JS : table des matières (chargé uniquement sur les articles)
