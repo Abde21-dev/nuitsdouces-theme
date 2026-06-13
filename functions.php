@@ -27,7 +27,7 @@ function nuitsdouces_enqueue_assets() {
         'nuitsdouces-custom',
         get_stylesheet_directory_uri() . '/assets/css/custom.css',
         array( 'generate-style' ),
-        '2.0.2'
+        '2.0.3'
     );
 
     // JS : table des matières (chargé uniquement sur les articles)
@@ -202,7 +202,20 @@ add_shortcode( 'tableau_comparatif', 'nuitsdouces_tableau_comparatif_shortcode' 
 
 
 // ---------------------------------------------------------------------------
-// 4. NETTOYAGE DIVERS
+// 4. FOOTER — supprimer "Construit avec GeneratePress"
+// ---------------------------------------------------------------------------
+
+add_filter( 'generate_credits', '__return_empty_string' );
+
+add_filter( 'generate_copyright', function() {
+    return '© ' . date( 'Y' ) . ' <a href="' . esc_url( home_url( '/' ) ) . '">nuitsdouces.fr</a>'
+        . ' · <a href="' . esc_url( home_url( '/mentions-legales/' ) ) . '">Mentions légales</a>'
+        . ' · <a href="' . esc_url( home_url( '/page-affilie-amazon/' ) ) . '">Affiliation Amazon</a>';
+} );
+
+
+// ---------------------------------------------------------------------------
+// 5. NETTOYAGE DIVERS
 // ---------------------------------------------------------------------------
 
 // Supprimer l'emoji script WordPress (inutile pour un blog affiliation)

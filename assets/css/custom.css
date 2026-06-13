@@ -163,32 +163,51 @@ body .inside-page-header { padding: 3rem 5% !important; }
 }
 
 /* Logo : lune + Playfair Display */
-.site-title {
+.site-title,
+p.site-title,
+h1.site-title {
   font-family: var(--nd-serif) !important;
-  font-size: 22px !important;
+  font-size: 20px !important;
   font-weight: 700 !important;
-  letter-spacing: .2px;
+  letter-spacing: .2px !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
 }
-.site-title a {
+.site-title a,
+p.site-title a,
+h1.site-title a {
   color: var(--nd-navy) !important;
   text-decoration: none !important;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
 }
 /* Icône lune via data URI SVG */
-.site-title a::before {
-  content: '';
-  display: inline-block;
-  width: 28px;
-  height: 28px;
+.site-title a::before,
+p.site-title a::before,
+h1.site-title a::before {
+  content: '' !important;
+  display: inline-block !important;
+  width: 26px !important;
+  height: 26px !important;
   flex-shrink: 0;
   background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='14' cy='14' r='12' fill='%23C8A45A'/%3E%3Ccircle cx='18.5' cy='11.5' r='9.5' fill='%23FFFFFF'/%3E%3Ccircle cx='9' cy='8' r='1.3' fill='%23C8A45A'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.site-description { color: var(--nd-text-muted); font-size: .85rem; }
+.site-description { color: var(--nd-text-muted); font-size: .85rem; display: none; }
+
+/* Header container — centré, paddings latéraux cohérents */
+.inside-header {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0.75rem 5% !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
 
 /* Navigation */
 .nav-primary .main-nav ul li a {
