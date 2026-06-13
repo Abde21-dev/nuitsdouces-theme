@@ -29,15 +29,18 @@ jobs:
           server:         ${{ secrets.FTP_HOST }}
           username:       ${{ secrets.FTP_USER }}
           password:       ${{ secrets.FTP_PASSWORD }}
-          local-dir:      ./                          # racine du repo = racine du thème
+          local-dir:      ./
           server-dir:     /public_html/wp-content/themes/nuitsdouces-theme/
+          protocol:       ftp
+          port:           21
+          timeout:        60000
           exclude:        |
             **/.git*
             **/.git*/**
             **/.github/**
             **/node_modules/**
             README.md
-          state-name:     .ftp-deploy-sync-state.json # cache des fichiers déjà envoyés
+          state-name:     .ftp-deploy-sync-state.json
           log-level:      standard
 
       # 3. Notification de succès (optionnel — à activer quand tu veux)

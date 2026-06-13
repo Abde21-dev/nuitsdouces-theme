@@ -27,7 +27,7 @@ function nuitsdouces_enqueue_assets() {
         'nuitsdouces-custom',
         get_stylesheet_directory_uri() . '/assets/css/custom.css',
         array( 'generate-style' ),
-        '2.0.1'
+        '2.0.2'
     );
 
     // JS : table des matières (chargé uniquement sur les articles)
