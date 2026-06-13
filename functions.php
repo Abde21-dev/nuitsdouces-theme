@@ -43,7 +43,7 @@ function nuitsdouces_enqueue_assets() {
     wp_enqueue_style(
         'nuitsdouces-style',
         $uri . '/assets/css/custom.css',
-        array(), '3.0.1'
+        array(), '3.0.2'
     );
 
     // JS navigation mobile
