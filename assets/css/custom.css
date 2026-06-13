@@ -60,11 +60,11 @@
 ::selection { background: var(--nd-gold); color: var(--nd-navy); }
 
 body {
-  background-color: var(--nd-bg);
-  color: var(--nd-text);
-  font-family: var(--nd-sans);
-  font-size: 17px;
-  line-height: 1.75;
+  background-color: var(--nd-bg) !important;
+  color: var(--nd-text) !important;
+  font-family: var(--nd-sans) !important;
+  font-size: 17px !important;
+  line-height: 1.75 !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -87,15 +87,15 @@ a:hover {
    3. TYPOGRAPHIE
    -------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--nd-serif);
-  color: var(--nd-navy);
-  line-height: 1.25;
-  font-weight: 700;
+  font-family: var(--nd-serif) !important;
+  color: var(--nd-navy) !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
   margin-top: 0;
 }
-h1 { font-size: clamp(2rem, 4vw, 3rem);   margin-bottom: 1rem; }
-h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom: .9rem; margin-top: 2.5rem; }
-h3 { font-size: clamp(1.2rem, 2.5vw, 1.55rem); margin-bottom: .75rem; margin-top: 2rem; }
+h1 { font-size: clamp(2rem, 4vw, 3rem) !important;   margin-bottom: 1rem; }
+h2 { font-size: clamp(1.5rem, 3vw, 2.1rem) !important; margin-bottom: .9rem; margin-top: 2.5rem; }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.55rem) !important; margin-bottom: .75rem; margin-top: 2rem; }
 
 .entry-content h2 {
   padding-bottom: .5rem;
