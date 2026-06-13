@@ -37,17 +37,19 @@ function nuitsdouces_enqueue_assets() {
         array(), null
     );
 
+    $uri = get_stylesheet_directory_uri();
+
     // CSS principal
     wp_enqueue_style(
         'nuitsdouces-style',
-        get_template_directory_uri() . '/assets/css/custom.css',
-        array(), '3.0.0'
+        $uri . '/assets/css/custom.css',
+        array(), '3.0.1'
     );
 
     // JS navigation mobile
     wp_enqueue_script(
         'nuitsdouces-nav',
-        get_template_directory_uri() . '/assets/js/nav.js',
+        $uri . '/assets/js/nav.js',
         array(), '1.0.0', true
     );
 
@@ -55,7 +57,7 @@ function nuitsdouces_enqueue_assets() {
     if ( is_single() ) {
         wp_enqueue_script(
             'nuitsdouces-toc',
-            get_template_directory_uri() . '/assets/js/toc.js',
+            $uri . '/assets/js/toc.js',
             array(), '1.0.0', true
         );
     }
