@@ -14,10 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function nuitsdouces_enqueue_assets() {
 
-    // Google Fonts : Inter + Merriweather
+    // Google Fonts : Playfair Display (titres serif) + DM Sans (corps) + DM Mono (labels)
     wp_enqueue_style(
         'nuitsdouces-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap',
+        'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap',
         array(),
         null
     );
@@ -27,7 +27,7 @@ function nuitsdouces_enqueue_assets() {
         'nuitsdouces-custom',
         get_stylesheet_directory_uri() . '/assets/css/custom.css',
         array( 'generate-style' ),
-        '1.1.0'
+        '2.0.0'
     );
 
     // JS : table des matières (chargé uniquement sur les articles)
