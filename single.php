@@ -40,7 +40,7 @@ $cat    = $cats ? $cats[0] : null;
     <!-- Disclaimer affiliation en pied d'article -->
     <footer class="nd-article__footer">
         <p class="nd-article__disclaimer">
-            <em>En tant que Partenaire Amazon, nous percevons une commission sur les achats éligibles, sans surcoût pour vous. Nos avis restent indépendants.</em>
+            <em>Notre site participe au programme Partenaire Amazon.</em>
         </p>
     </footer>
 

@@ -174,7 +174,7 @@ function nuitsdouces_tableau_comparatif_shortcode( $atts ) {
             </table>
         </div>
         <p class="nd-comparison__disclaimer">
-            * En tant que Partenaire Amazon, nous percevons une commission sur les achats éligibles, sans surcoût pour vous.
+            * Notre site participe au programme Partenaire Amazon.
         </p>
     </div>
     <?php return ob_get_clean();
