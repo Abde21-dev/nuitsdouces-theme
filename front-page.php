@@ -13,10 +13,10 @@
             et à mieux dormir, dès ce soir.
         </p>
         <div class="nd-hero__actions">
-            <a href="<?php echo esc_url( home_url( '/category/matelas/' ) ); ?>" class="nd-btn-cta">
+            <a href="<?php echo esc_url(home_url('/category/matelas/')); ?>" class="nd-btn-cta">
                 Voir le comparatif matelas →
             </a>
-            <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="nd-hero__ghost">
+            <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="nd-hero__ghost">
                 Tous nos guides
             </a>
         </div>
@@ -33,42 +33,44 @@
                 <span class="nd-label">Le carnet</span>
                 <h2 class="nd-section__title">Articles récents</h2>
             </div>
-            <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="nd-section__more">Tout voir →</a>
+            <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="nd-section__more">Tout voir →</a>
         </div>
 
         <div class="nd-posts-grid">
             <?php
-            $loop = new WP_Query( array(
+            $loop = new WP_Query(array(
                 'posts_per_page' => 3,
                 'post_status'    => 'publish',
                 'orderby'        => 'date',
                 'order'          => 'DESC',
-            ) );
-            if ( $loop->have_posts() ) :
-                while ( $loop->have_posts() ) : $loop->the_post();
+            ));
+            if ($loop->have_posts()) :
+                while ($loop->have_posts()) : $loop->the_post();
                     $cats     = get_the_category();
-                    $cat_name = $cats ? esc_html( $cats[0]->name ) : '';
+                    $cat_name = $cats ? esc_html($cats[0]->name) : '';
             ?>
-                <article class="nd-card">
-                    <div class="nd-card__img<?php echo ! has_post_thumbnail() ? ' nd-card__img--placeholder' : ''; ?>">
-                        <?php if ( has_post_thumbnail() ) : ?>
-                            <?php the_post_thumbnail( 'nd-card' ); ?>
-                        <?php else : ?>
-                            <span class="nd-placeholder-label">[ photo : <?php echo strtolower( esc_html( get_the_title() ) ); ?> ]</span>
-                        <?php endif; ?>
-                    </div>
-                    <div class="nd-card__body">
-                        <?php if ( $cat_name ) : ?>
-                            <span class="nd-card__cat"><?php echo $cat_name; ?></span>
-                        <?php endif; ?>
-                        <h3 class="nd-card__title">
-                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                        </h3>
-                        <p class="nd-card__excerpt"><?php echo wp_trim_words( get_the_excerpt(), 20, '…' ); ?></p>
-                        <a href="<?php the_permalink(); ?>" class="nd-card__link">Lire l'article →</a>
-                    </div>
-                </article>
-            <?php endwhile; wp_reset_postdata(); endif; ?>
+                    <article class="nd-card">
+                        <div class="nd-card__img<?php echo ! has_post_thumbnail() ? ' nd-card__img--placeholder' : ''; ?>">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <?php the_post_thumbnail('nd-card'); ?>
+                            <?php else : ?>
+                                <span class="nd-placeholder-label">[ photo : <?php echo strtolower(esc_html(get_the_title())); ?> ]</span>
+                            <?php endif; ?>
+                        </div>
+                        <div class="nd-card__body">
+                            <?php if ($cat_name) : ?>
+                                <span class="nd-card__cat"><?php echo $cat_name; ?></span>
+                            <?php endif; ?>
+                            <h3 class="nd-card__title">
+                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </h3>
+                            <p class="nd-card__excerpt"><?php echo wp_trim_words(get_the_excerpt(), 20, '…'); ?></p>
+                            <a href="<?php the_permalink(); ?>" class="nd-card__link">Lire l'article →</a>
+                        </div>
+                    </article>
+            <?php endwhile;
+                wp_reset_postdata();
+            endif; ?>
         </div>
     </div>
 </section>
@@ -92,37 +94,39 @@
                     'tag'    => 'Matelas',
                     'titre'  => 'Meilleur matelas 2025',
                     'desc'   => 'Notre sélection des matelas les mieux notés selon votre morphologie et votre budget.',
-                    'img'    => '[ photo : matelas ]',
-                    'lien'   => home_url( '/category/matelas/' ),
+                    'img'    => 113,
+                    'lien'   => home_url('/category/matelas/'),
                 ),
                 array(
                     'tag'    => 'Oreillers',
                     'titre'  => 'Meilleur oreiller 2025',
                     'desc'   => 'Côté, dos, ventre : trouvez l\'oreiller adapté à votre position de sommeil.',
-                    'img'    => '[ photo : oreiller ]',
-                    'lien'   => home_url( '/category/oreillers/' ),
+                    'img'    => 114,
+                    'lien'   => home_url('/category/oreillers/'),
                 ),
                 array(
                     'tag'    => 'Accessoires',
                     'titre'  => 'Couverture lestée 2025',
                     'desc'   => 'Poids, matière, entretien : tout ce qu\'il faut savoir avant d\'acheter.',
-                    'img'    => '[ photo : couverture lestée ]',
-                    'lien'   => home_url( '/category/accessoires/' ),
+                    'img'    => 115,
+                    'lien'   => home_url('/category/accessoires/'),
                 ),
             );
-            foreach ( $guides as $guide ) :
+            foreach ($guides as $guide) :
             ?>
-            <a href="<?php echo esc_url( $guide['lien'] ); ?>" class="nd-guide-card">
-                <div class="nd-guide-card__img">
-                    <span><?php echo esc_html( $guide['img'] ); ?></span>
-                </div>
-                <div class="nd-guide-card__body">
-                    <span class="nd-guide-card__tag"><?php echo esc_html( $guide['tag'] ); ?></span>
-                    <h3><?php echo esc_html( $guide['titre'] ); ?></h3>
-                    <p><?php echo esc_html( $guide['desc'] ); ?></p>
-                    <span class="nd-guide-card__cta">Voir le guide →</span>
-                </div>
-            </a>
+                <a href="<?php echo esc_url($guide['lien']); ?>" class="nd-guide-card">
+                    <div class="nd-guide-card__img">
+                        <?php echo wp_get_attachment_image($guide['img'], 'nd-card'); ?>
+                    </div>
+
+
+                    <div class="nd-guide-card__body">
+                        <span class="nd-guide-card__tag"><?php echo esc_html($guide['tag']); ?></span>
+                        <h3><?php echo esc_html($guide['titre']); ?></h3>
+                        <p><?php echo esc_html($guide['desc']); ?></p>
+                        <span class="nd-guide-card__cta">Voir le guide →</span>
+                    </div>
+                </a>
             <?php endforeach; ?>
         </div>
     </div>
@@ -142,8 +146,8 @@
             <div class="nd-trust-card">
                 <div class="nd-trust-card__icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                        <polyline points="22 4 12 14.01 9 11.01"/>
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
                     </svg>
                 </div>
                 <h4>Tests honnêtes</h4>
@@ -153,11 +157,11 @@
             <div class="nd-trust-card">
                 <div class="nd-trust-card__icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10 9 9 9 8 9"/>
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                        <polyline points="10 9 9 9 8 9" />
                     </svg>
                 </div>
                 <h4>Sources vérifiées</h4>
@@ -167,8 +171,8 @@
             <div class="nd-trust-card">
                 <div class="nd-trust-card__icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"/>
-                        <polyline points="12 6 12 12 16 14"/>
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
                     </svg>
                 </div>
                 <h4>Mise à jour régulière</h4>
