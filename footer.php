@@ -13,6 +13,7 @@
                 </svg>
                 <?php bloginfo( 'name' ); ?>
             </a>
+            <p class="nd-footer__amazon">Notre site participe au programme Partenaire Amazon.</p>
             <p class="nd-footer__tagline">Tests honnêtes. Nuits réparées.</p>
         </div>
 

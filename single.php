@@ -37,13 +37,6 @@ $cat    = $cats ? $cats[0] : null;
         <?php the_content(); ?>
     </div>
 
-    <!-- Disclaimer affiliation en pied d'article -->
-    <footer class="nd-article__footer">
-        <p class="nd-article__disclaimer">
-            <em>Notre site participe au programme Partenaire Amazon.</em>
-        </p>
-    </footer>
-
 </article>
 
 <!-- Articles similaires -->

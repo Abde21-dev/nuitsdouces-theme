@@ -173,9 +173,6 @@ function nuitsdouces_tableau_comparatif_shortcode( $atts ) {
                 </tbody>
             </table>
         </div>
-        <p class="nd-comparison__disclaimer">
-            * Notre site participe au programme Partenaire Amazon.
-        </p>
     </div>
     <?php return ob_get_clean();
 }
