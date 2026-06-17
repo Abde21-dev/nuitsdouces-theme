@@ -92,21 +92,21 @@
             $guides = array(
                 array(
                     'tag'    => 'Matelas',
-                    'titre'  => 'Meilleur matelas 2025',
+                    'titre'  => 'Meilleur matelas 2026',
                     'desc'   => 'Notre sélection des matelas les mieux notés selon votre morphologie et votre budget.',
                     'img'    => 113,
                     'lien'   => home_url('/category/matelas/'),
                 ),
                 array(
                     'tag'    => 'Oreillers',
-                    'titre'  => 'Meilleur oreiller 2025',
+                    'titre'  => 'Meilleur oreiller 2026',
                     'desc'   => 'Côté, dos, ventre : trouvez l\'oreiller adapté à votre position de sommeil.',
                     'img'    => 114,
                     'lien'   => home_url('/category/oreillers/'),
                 ),
                 array(
                     'tag'    => 'Accessoires',
-                    'titre'  => 'Couverture lestée 2025',
+                    'titre'  => 'Couverture lestée 2026',
                     'desc'   => 'Poids, matière, entretien : tout ce qu\'il faut savoir avant d\'acheter.',
                     'img'    => 115,
                     'lien'   => home_url('/category/accessoires/'),
